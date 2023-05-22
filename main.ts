@@ -1,0 +1,11 @@
+kitronik_air_quality.setupGasSensor()
+kitronik_air_quality.calcBaselines()
+basic.forever(function () {
+    kitronik_air_quality.measureData()
+    kitronik_air_quality.show("T:" + kitronik_air_quality.readTemperature(kitronik_air_quality.TemperatureUnitList.C) + "C", 1)
+    kitronik_air_quality.show("P:" + kitronik_air_quality.readPressure(kitronik_air_quality.PressureUnitList.Pa) + "Pa", 2)
+    kitronik_air_quality.show("H:" + kitronik_air_quality.readHumidity() + "", 3)
+    kitronik_air_quality.show("IAQ:" + kitronik_air_quality.getAirQualityScore() + "", 4)
+    kitronik_air_quality.show("eCO2:" + kitronik_air_quality.readeCO2() + "", 5)
+    basic.pause(5000)
+})
